@@ -1,0 +1,21 @@
+name: conquerima.com
+proxy:
+  appserver:
+    - conquerima.lndo.site:8000
+services:
+  appserver:
+    type: node:16
+    port: '8000'
+    command: gatsby develop --host 0.0.0.0
+    install_dependencies_as_me:
+      - yarn global add gatsby-cli
+      - yarn
+tooling:
+  yarn:
+    service: appserver
+  gatsby:
+    service: appserver
+  node:
+    service: appserver
+  npm:
+    service: appserver
